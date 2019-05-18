@@ -114,6 +114,8 @@ public class MainController implements Initializable {
         Network.sendMsg(new FileListRequest());
     }
 
+//TODO need to realize resuming and pausing
+
     public void pressBtnDownloadRem(ActionEvent actionEvent) {
         FileInfo info = remotefilesTable.getSelectionModel().getSelectedItem().getFileInfo();
         if (info.position < info.fileLength) {
@@ -121,7 +123,6 @@ public class MainController implements Initializable {
             Network.sendMsg(new FileListRequest());
             refreshLocalFilesList();
         } else {
-//TODO need to realize resuming and pausing
             AbstractMessage result = toggleClientReceiver.apply(info);
             if (result != null) {
                 Network.sendMsg(result);
@@ -140,6 +141,8 @@ public class MainController implements Initializable {
     public void pressBtnRefreshLoc(ActionEvent actionEvent) {
         refreshLocalFilesList();
     }
+
+//TODO need to realize resuming and pausing
 
     public void pressBtnUploadLoc(ActionEvent actionEvent) {
         FileInfo info = localfilesTable.getSelectionModel().getSelectedItem().getFileInfo();
