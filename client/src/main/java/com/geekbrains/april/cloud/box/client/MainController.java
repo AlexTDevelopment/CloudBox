@@ -121,6 +121,7 @@ public class MainController implements Initializable {
             Network.sendMsg(new FileListRequest());
             refreshLocalFilesList();
         } else {
+//TODO need to realize resuming
             AbstractMessage result = toggleClientReceiver.apply(info);
             if (result != null) {
                 Network.sendMsg(result);
